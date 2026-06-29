@@ -234,7 +234,7 @@ function setupDownloadModal() {
     submitButton.textContent = "Enviando...";
 
     try {
-      const response = await fetch("/.netlify/functions/send-resource", {
+      const response = await fetch("/api/send-resource", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -247,7 +247,7 @@ function setupDownloadModal() {
       });
 
       const result = await response.json().catch(() => ({
-        message: "No se ha podido conectar con el envío automático. Comprueba que la web esté desplegada en Netlify."
+        message: "No se ha podido conectar con el envío automático. Comprueba que la web esté desplegada en Vercel."
       }));
 
       if (!response.ok) {
