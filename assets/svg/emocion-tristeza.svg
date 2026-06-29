@@ -1,0 +1,10 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="220" rx="44" fill="#D8F0DF"/>
+  <circle cx="110" cy="95" r="55" fill="#F7C9A4" stroke="#4D4238" stroke-width="5"/>
+  <circle cx="90" cy="88" r="6" fill="#4D4238"/>
+  <circle cx="130" cy="88" r="6" fill="#4D4238"/>
+  <path d="M84 126C98 111 123 111 137 126" stroke="#4D4238" stroke-width="6" stroke-linecap="round"/>
+  <path d="M148 104C157 114 157 123 148 130C139 123 139 114 148 104Z" fill="#9BC7E8"/>
+  <path d="M58 163C82 145 137 145 162 163" stroke="#94C9A9" stroke-width="10" stroke-linecap="round"/>
+  <text x="110" y="196" text-anchor="middle" font-family="Quicksand, Arial" font-size="22" font-weight="800" fill="#4D4238">Tristeza</text>
+</svg>

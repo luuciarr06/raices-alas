@@ -1,0 +1,10 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="220" rx="44" fill="#DCEFFA"/>
+  <circle cx="110" cy="95" r="55" fill="#F7C9A4" stroke="#4D4238" stroke-width="5"/>
+  <circle cx="90" cy="88" r="6" fill="#4D4238"/>
+  <circle cx="130" cy="88" r="6" fill="#4D4238"/>
+  <ellipse cx="110" cy="116" rx="12" ry="16" fill="#4D4238"/>
+  <path d="M73 73C81 64 91 64 99 73M121 73C129 64 139 64 147 73" stroke="#4D4238" stroke-width="5" stroke-linecap="round"/>
+  <path d="M58 163C82 145 137 145 162 163" stroke="#94C9A9" stroke-width="10" stroke-linecap="round"/>
+  <text x="110" y="196" text-anchor="middle" font-family="Quicksand, Arial" font-size="22" font-weight="800" fill="#4D4238">Miedo</text>
+</svg>

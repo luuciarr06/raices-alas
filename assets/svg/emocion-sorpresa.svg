@@ -1,0 +1,10 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="220" rx="44" fill="#FFF0BF"/>
+  <circle cx="110" cy="95" r="55" fill="#F7C9A4" stroke="#4D4238" stroke-width="5"/>
+  <circle cx="90" cy="88" r="6" fill="#4D4238"/>
+  <circle cx="130" cy="88" r="6" fill="#4D4238"/>
+  <circle cx="110" cy="118" r="13" fill="#4D4238"/>
+  <path d="M63 58L50 44M157 58L171 44M110 40V22" stroke="#EAA6AE" stroke-width="7" stroke-linecap="round"/>
+  <path d="M58 163C82 145 137 145 162 163" stroke="#94C9A9" stroke-width="10" stroke-linecap="round"/>
+  <text x="110" y="196" text-anchor="middle" font-family="Quicksand, Arial" font-size="22" font-weight="800" fill="#4D4238">Sorpresa</text>
+</svg>
