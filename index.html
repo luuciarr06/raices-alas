@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Raíces y Alas Educación: recursos educativos, educación emocional, atención temprana y acompañamiento para familias y docentes." />
+  <meta name="theme-color" content="#f8d7da" />
+  <title>Raíces y Alas Educación</title>
+
+  <!-- Tipografías cálidas y redondeadas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="site-header" data-header>
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="#home" aria-label="Raíces y Alas Educación - Inicio">
+        <img
+          class="brand__logo"
+          src="./assets/img/logo.img.jpeg"
+          alt="Logo de Raíces y Alas Educación"
+        />
+        <span class="brand__text">Raíces y Alas Educación</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="menu-principal" data-nav-menu>
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#sobre-nosotras">Sobre nosotras</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#emociones">Emociones</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#blog">Reflexiones</a></li>
+        <li><a class="nav-menu__cta" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal">
+    <!-- HOME -->
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="hero__decor hero__decor--one" aria-hidden="true"></div>
+      <div class="hero__decor hero__decor--two" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Educación emocional · Atención temprana · Recursos</p>
+          <h1 id="hero-title">Cultivamos raíces que sostienen y alas que acompañan cada vuelo.</h1>
+          <p class="hero__lead">
+            Un espacio cálido para familias y docentes donde la infancia se mira con respeto,
+            ternura y herramientas educativas reales.
+          </p>
+
+          <div class="hero__actions" aria-label="Acciones principales">
+            <a class="button button--primary" href="#recursos">Explorar recursos</a>
+            <a class="button button--ghost" href="#sobre-nosotras">Conocernos</a>
+          </div>
+
+          <ul class="hero__badges" aria-label="Áreas de trabajo">
+            <li>🌈 Emociones</li>
+            <li>🧩 Pictogramas</li>
+            <li>🏡 Familias</li>
+            <li>🍎 Docentes</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual reveal" aria-label="Ilustración educativa">
+          <img src="./assets/svg/hero-garden.svg" alt="Ilustración de un árbol con corazones, libros y niños aprendiendo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section class="section about-preview" aria-labelledby="about-preview-title">
+      <div class="container split">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Quiénes somos</p>
+          <h2 id="about-preview-title">Educamos desde el corazón, con mirada profesional.</h2>
+        </div>
+
+        <div class="about-preview__text reveal">
+          <p>
+            Raíces y Alas Educación nace para compartir recursos, reflexiones y propuestas que ayuden a
+            acompañar a la infancia desde la educación emocional, la atención temprana y la creatividad.
+          </p>
+          <a class="text-link" href="#sobre-nosotras">Leer más sobre Patricia e Irene</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARRUSEL DESTACADOS -->
+    <section class="section featured" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow">Recursos destacados</p>
+          <h2 id="featured-title">Materiales para acompañar con calma y cariño.</h2>
+        </div>
+
+        <div class="carousel reveal" data-carousel>
+          <button class="carousel__button carousel__button--prev" type="button" aria-label="Recurso anterior" data-carousel-prev>‹</button>
+
+          <div class="carousel__viewport" tabindex="0">
+            <div class="carousel__track" data-carousel-track></div>
+          </div>
+
+          <button class="carousel__button carousel__button--next" type="button" aria-label="Recurso siguiente" data-carousel-next>›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow">Comunidad</p>
+          <h2 id="testimonials-title">Pequeñas voces que nos recuerdan por qué educamos.</h2>
+        </div>
+
+        <div class="testimonial-card reveal" data-testimonial-card aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- CTA DESCARGAS -->
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container cta__box reveal">
+        <div>
+          <p class="eyebrow">Recurso gratuito</p>
+          <h2 id="cta-title">Descarga una mini guía para trabajar emociones en casa y en el aula.</h2>
+          <p>Incluye ideas sencillas, preguntas para conversar y una propuesta de actividad visual.</p>
+        </div>
+
+        <button class="button button--primary" type="button" data-open-download data-resource-id="mini-guia-emociones" data-resource-title="Mini guía de emociones">
+          Descargar gratis
+        </button>
+      </div>
+    </section>
+
+    <!-- SOBRE NOSOTRAS -->
+    <section class="section team" id="sobre-nosotras" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow">Sobre nosotras</p>
+          <h2 id="team-title">Dos miradas, una misma raíz: acompañar la infancia.</h2>
+        </div>
+
+        <div class="team__grid" data-team-grid></div>
+
+        <div class="values reveal">
+          <article>
+            <h3>Misión</h3>
+            <p>Crear materiales y experiencias que ayuden a entender, nombrar y acompañar lo que sienten los niños y niñas.</p>
+          </article>
+
+          <article>
+            <h3>Valores</h3>
+            <p>Respeto, ternura, inclusión, creatividad, escucha activa y educación basada en vínculos seguros.</p>
+          </article>
+
+          <article>
+            <h3>Mirada</h3>
+            <p>Profesional y cercana, con recursos claros para familias, docentes y profesionales de la infancia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECURSOS EDUCATIVOS -->
+    <section class="section resources" id="recursos" aria-labelledby="resources-title">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow">Recursos educativos</p>
+          <h2 id="resources-title">Herramientas visuales para aprender, expresar y crecer.</h2>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filtrar recursos por categoría" data-filters></div>
+        <div class="resource-grid" data-resource-grid></div>
+      </div>
+    </section>
+
+    <!-- EMOCIONES -->
+    <section class="section emotions" id="emociones" aria-labelledby="emotions-title">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow">Colección emociones</p>
+          <h2 id="emotions-title">Aprender a sentir también es aprender a vivir.</h2>
+        </div>
+
+        <div class="emotion-grid" data-emotion-grid></div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section services" id="servicios" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow">Servicios</p>
+          <h2 id="services-title">Acompañamiento educativo adaptado a cada necesidad.</h2>
+        </div>
+
+        <div class="services__grid" data-services-grid></div>
+
+        <div class="calendar reveal" aria-labelledby="calendar-title">
+          <div>
+            <p class="eyebrow">Calendario interactivo</p>
+            <h3 id="calendar-title">Elige una fecha orientativa para una sesión.</h3>
+            <p>Selecciona una opción y te responderemos para confirmar disponibilidad real.</p>
+          </div>
+
+          <div class="calendar__slots" data-calendar-slots></div>
+          <p class="calendar__selected" data-calendar-selected aria-live="polite">Todavía no has seleccionado ninguna fecha.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="section blog" id="blog" aria-labelledby="blog-title">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow">Blog / Reflexiones</p>
+          <h2 id="blog-title">Ideas para mirar la infancia con más calma.</h2>
+        </div>
+
+        <div class="blog__grid" data-blog-grid></div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section contact" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__info reveal">
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contact-title">Hola, estamos encantadas de leerte.</h2>
+          <p>
+            Cuéntanos qué necesitas: recursos, talleres, acompañamiento o colaboración.
+            Te responderemos con una propuesta cercana y personalizada.
+          </p>
+
+          <div class="socials" aria-label="Redes sociales">
+            <a href="https://www.instagram.com/raicesyalas.educacion/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/icons/instagram.svg" alt="" aria-hidden="true" />
+              Instagram
+            </a>
+
+            <a href="mailto:hola@raicesyalas.educacion">
+              <img src="./assets/icons/mail.svg" alt="" aria-hidden="true" />
+              Email
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" data-contact-form novalidate>
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+            <small class="form-error" data-error-for="nombre"></small>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <small class="form-error" data-error-for="email"></small>
+          </div>
+
+          <div class="form-field">
+            <label for="interes">¿Qué necesitas?</label>
+            <select id="interes" name="interes" required>
+              <option value="">Selecciona una opción</option>
+              <option>Recursos educativos</option>
+              <option>Talleres</option>
+              <option>Acompañamiento familiar</option>
+              <option>Formación docente</option>
+              <option>Colaboración</option>
+            </select>
+            <small class="form-error" data-error-for="interes"></small>
+          </div>
+
+          <div class="form-field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            <small class="form-error" data-error-for="mensaje"></small>
+          </div>
+
+          <button class="button button--primary" type="submit">Enviar mensaje</button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a class="brand brand--footer" href="#home" aria-label="Raíces y Alas Educación - Inicio">
+          <img
+            class="brand__logo"
+            src="./assets/img/logo.img.jpeg"
+            alt="Logo de Raíces y Alas Educación"
+          />
+          <span class="brand__text">Raíces y Alas Educación</span>
+        </a>
+
+        <p>“Raíces para sentirse seguros, alas para descubrir el mundo.”</p>
+      </div>
+
+      <nav aria-label="Menú secundario">
+        <a href="#sobre-nosotras">Sobre nosotras</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#emociones">Emociones</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="footer__icons" aria-label="Iconos decorativos">
+        <img src="./assets/icons/heart.svg" alt="" aria-hidden="true" />
+        <img src="./assets/icons/leaf.svg" alt="" aria-hidden="true" />
+        <img src="./assets/icons/download.svg" alt="" aria-hidden="true" />
+      </div>
+    </div>
+
+    <p class="footer__copy">© <span data-year></span> Raíces y Alas Educación. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Modal reutilizable de descarga -->
+  <dialog class="modal" data-download-modal aria-labelledby="modal-title">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Cerrar modal" data-close-download>×</button>
+
+      <img src="./assets/icons/download.svg" alt="" aria-hidden="true" />
+
+      <h2 id="modal-title">Descarga de recurso</h2>
+      <p data-download-text>Déjanos tu correo y te enviaremos el recurso.</p>
+
+      <form class="download-form" data-download-form>
+        <label for="download-email">Correo electrónico</label>
+        <input id="download-email" name="download-email" type="email" placeholder="tuemail@ejemplo.com" required />
+        <button class="button button--primary" type="submit">Enviar recurso</button>
+      </form>
+
+      <p class="form-status" data-download-status aria-live="polite"></p>
+    </div>
+  </dialog>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
