@@ -67,97 +67,133 @@ const RESOURCE_MAP = {
     title: "Información sobre sesiones personalizadas",
     path: "/assets/docs/info-sesiones-personalizadas.pdf"
   }
-};
-
-function jsonResponse(statusCode, body) {
-  return {
-    statusCode,
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(body)
-  };
 }
 
 function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
-exports.handler = async function (event) {
-  if (event.httpMethod !== "POST") {
-    return jsonResponse(405, { message: "Método no permitido." });
+function getSiteUrl(req) {
+  if (process.env.SITE_URL) {
+    return process.env.SITE_URL
   }
 
-  let body;
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`
+  }
+
+  const host = req.headers.host
+
+  if (host) {
+    return `https://${host}`
+  }
+
+  return "http://localhost:3000"
+}
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({
+      message: "Método no permitido."
+    })
+  }
 
   try {
-    body = JSON.parse(event.body || "{}");
-  } catch (error) {
-    return jsonResponse(400, { message: "Los datos enviados no son válidos." });
-  }
+    const body = typeof req.body === "string"
+      ? JSON.parse(req.body || "{}")
+      : req.body || {}
 
-  const email = String(body.email || "").trim();
-  const resourceId = String(body.resourceId || "mini-guia-emociones").trim();
-  const requestedTitle = String(body.resourceTitle || "").trim();
+    const email = String(body.email || "").trim()
+    const resourceId = String(body.resourceId || "mini-guia-emociones").trim()
+    const requestedTitle = String(body.resourceTitle || "").trim()
 
-  if (!isValidEmail(email)) {
-    return jsonResponse(400, { message: "Introduce un correo válido." });
-  }
+    if (!isValidEmail(email)) {
+      return res.status(400).json({
+        message: "Introduce un correo válido."
+      })
+    }
 
-  const selectedResource = RESOURCE_MAP[resourceId] || RESOURCE_MAP["mini-guia-emociones"];
-  const resourceTitle = selectedResource.title || requestedTitle || "Recurso solicitado";
+    const selectedResource = RESOURCE_MAP[resourceId] || RESOURCE_MAP["mini-guia-emociones"]
+    const resourceTitle = selectedResource.title || requestedTitle || "Recurso solicitado"
 
-  const resendApiKey = process.env.RESEND_API_KEY;
-  const senderEmail = process.env.SENDER_EMAIL || "Raíces y Alas Educación <onboarding@resend.dev>";
-  const siteUrl = process.env.URL || process.env.DEPLOY_PRIME_URL || "https://raices-y-alass.netlify.app";
-  const documentUrl = new URL(selectedResource.path, siteUrl).href;
+    const resendApiKey = process.env.RESEND_API_KEY
+    const senderEmail =
+      process.env.SENDER_EMAIL ||
+      "Raíces y Alas Educación <onboarding@resend.dev>"
 
-  if (!resendApiKey) {
-    return jsonResponse(500, {
-      message: "Falta configurar RESEND_API_KEY en Netlify para poder enviar correos."
-    });
-  }
+    const siteUrl = getSiteUrl(req)
+    const documentUrl = new URL(selectedResource.path, siteUrl).href
 
-  const emailResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${resendApiKey}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      from: senderEmail,
-      to: [email],
-      subject: `Aquí tienes tu recurso: ${resourceTitle}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; color: #4d4238; line-height: 1.6; max-width: 620px; margin: 0 auto;">
-          <h1 style="color: #4d4238;">Raíces y Alas Educación</h1>
-          <p>Hola,</p>
-          <p>Gracias por solicitar un recurso en <strong>Raíces y Alas Educación</strong>.</p>
-          <p>Este es el documento que has pedido:</p>
-          <p style="margin: 24px 0;">
-            <a href="${documentUrl}" style="display: inline-block; background: #d8f0df; color: #4d4238; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: bold;">
-              Descargar ${resourceTitle}
-            </a>
-          </p>
-          <p>Si el botón no funciona, copia y pega este enlace en tu navegador:</p>
-          <p><a href="${documentUrl}">${documentUrl}</a></p>
-          <p style="margin-top: 28px;">Con cariño,<br /><strong>Raíces y Alas Educación</strong></p>
-        </div>
-      `
+    if (!resendApiKey) {
+      return res.status(500).json({
+        message: "Falta configurar RESEND_API_KEY en Vercel para poder enviar correos."
+      })
+    }
+
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        from: senderEmail,
+        to: [email],
+        subject: `Aquí tienes tu recurso: ${resourceTitle}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; color: #4d4238; line-height: 1.6; max-width: 620px; margin: 0 auto;">
+            <h1 style="color: #4d4238;">Raíces y Alas Educación</h1>
+
+            <p>Hola,</p>
+
+            <p>
+              Gracias por solicitar un recurso en
+              <strong>Raíces y Alas Educación</strong>.
+            </p>
+
+            <p>Este es el documento que has pedido:</p>
+
+            <p style="margin: 24px 0;">
+              <a
+                href="${documentUrl}"
+                style="display: inline-block; background: #d8f0df; color: #4d4238; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: bold;"
+              >
+                Descargar ${resourceTitle}
+              </a>
+            </p>
+
+            <p>Si el botón no funciona, copia y pega este enlace en tu navegador:</p>
+
+            <p>
+              <a href="${documentUrl}">${documentUrl}</a>
+            </p>
+
+            <p style="margin-top: 28px;">
+              Con cariño,<br />
+              <strong>Raíces y Alas Educación</strong>
+            </p>
+          </div>
+        `
+      })
     })
-  });
 
-  const result = await emailResponse.json().catch(() => ({}));
+    const result = await emailResponse.json().catch(() => ({}))
 
-  if (!emailResponse.ok) {
-    return jsonResponse(500, {
-      message: "No se ha podido enviar el recurso. Revisa la configuración de Resend en Netlify.",
-      error: result
-    });
+    if (!emailResponse.ok) {
+      return res.status(500).json({
+        message: "No se ha podido enviar el recurso. Revisa la configuración de Resend en Vercel.",
+        error: result
+      })
+    }
+
+    return res.status(200).json({
+      message: "Recurso enviado correctamente.",
+      resource: resourceTitle
+    })
+  } catch (error) {
+    return res.status(500).json({
+      message: "Ha ocurrido un error inesperado al enviar el recurso.",
+      error: error.message
+    })
   }
-
-  return jsonResponse(200, {
-    message: "Recurso enviado correctamente.",
-    resource: resourceTitle
-  });
-};
+}
